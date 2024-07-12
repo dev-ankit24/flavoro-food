@@ -1,4 +1,5 @@
 import React from 'react'
+import { FaStar } from "react-icons/fa";
 
 export default function FoodCard(props) {
   return (<>
@@ -11,7 +12,7 @@ export default function FoodCard(props) {
         </div>
         <p className='text-sm font-normal'>{props.desc.slice(0,75)}</p>
         <div  className='flex justify-between   '>
-            <span className='font-bold justify-center  items-center '>{props.rating}</span>
+            <span className='font-bold justify-center  flex gap-1 items-center '> <FaStar  className=' text-yellow-500'/>{props.rating}</span>
             <button className='p-1 hover:bg-green-600 bg-green-500 text-white font-bold rounded-lg tex-sm '>Add To Cart</button>
         </div>
      </div>
