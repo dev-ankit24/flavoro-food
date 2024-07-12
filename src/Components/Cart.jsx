@@ -1,5 +1,6 @@
 import React from 'react'
 import { RxCross2 } from "react-icons/rx";
+import { ItemCart } from './ItemCart';
 
 export const Cart = () => {
   return (
@@ -9,6 +10,9 @@ export const Cart = () => {
             <span className='text-gray-600 font-bold text-xl'>My Order </span>
             <RxCross2 className='text-gray-500 font-bold cursor-pointer border-2 text-xl border-gray-600 rounded-md hover:text-red-600 hover:border-red-600 ' />
         </div>
+        <ItemCart/>
+        <ItemCart/>
+        <ItemCart/>
         <div className='absolute bottom-0'>
             <h3 className='font-semibold text-gry-500'>Items:</h3>
             <h3 className='font-semibold text-gry-500'>Total Amount:</h3>
