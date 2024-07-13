@@ -5,12 +5,18 @@ import { removeToCart } from '../Redux/Slice/CartSlice';
 import { useDispatch } from 'react-redux';
 import { incrementQty,decrementQty } from '../Redux/Slice/CartSlice';
 
-export const ItemCart = ( {id,img,price,name,qty })=> {
+export const ItemCart = ( {id,img,price,name,qty ,toast})=> {
   let dispatch=useDispatch()
   return (
     <>  
+    
       <div className='flex shadow-md cursor-pointer shadow-gray-300  hover:shadow-blue-300 p-2 gap-2 mt-2 rounded-md'>
-          <MdDeleteForever onClick={()=>dispatch(removeToCart({id,price,img,qty}))} className=' absolute right-7 hover:text-red-500 cursor-pointer' />
+          <MdDeleteForever 
+          onClick={()=>
+          {dispatch(removeToCart({id,price,img,qty}))
+          toast.error("This didn't work.")
+        }}
+         className=' absolute right-7 hover:text-red-500 cursor-pointer' />
          <img src={img} alt="" className='w-[40px] h-[40px]  hover:scale-105  transition-all duration-500' />
          <div className='leading-5'>
           <div className="flex text-center">

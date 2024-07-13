@@ -3,6 +3,8 @@ import { FaShoppingCart } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 import { ItemCart } from './ItemCart';
 import { useSelector } from 'react-redux';
+
+
 export const Cart = () => {
   let [activeCart, SetActiveCart] =useState(true)
   let cartItem =useSelector((state)=>state.cart.cart)
@@ -10,7 +12,6 @@ export const Cart = () => {
   let totalQty=cartItem.reduce((totalQty,item)=>totalQty+item.qty, 0)
   let totalPrice=cartItem.reduce((totalPrice,item)=>totalPrice+item.qty * item.price,0)
 
-  console.log(cartItem);
   return (
     <>
     <div className={`fixed  bg-white p-5 w-full  lg:w-[20vw] top-0 right-0 h-full ${activeCart?'translate-x-0':'translate-x-full'} transition-all duration-500 z-50`}>

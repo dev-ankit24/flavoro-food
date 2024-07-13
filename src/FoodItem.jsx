@@ -1,11 +1,18 @@
 import React from 'react'
 import FoodCard from './FoodCard';
 import FoodData from './Data/FoodData';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function FoodItem() {
-  return (
+  let handleToast= (name)=>toast.success(`Added ${name}`);
+  
+  return (  
 <>
-    <div className='flex flex-wrap gap-10 justify-center lg:justify-start  mx-6 my-10'>
+<Toaster
+  position="top-center"
+  reverseOrder={false}
+/>
+    <div className='flex flex-wrap gap-10 justify-center    mx-6 my-10'>
         {
             FoodData.map((item , index)=>{
                 return( 
@@ -18,6 +25,7 @@ export default function FoodItem() {
                 img={item.img}
                 category={item.category} 
                 rating={item.rating}
+                handleToast={handleToast}
                 />)
             })
         }
