@@ -1,8 +1,10 @@
 import React from 'react'
 import { RxCross2 } from "react-icons/rx";
 import { ItemCart } from './ItemCart';
-
+import { useSelector } from 'react-redux';
 export const Cart = () => {
+  let cartItem =useSelector((state)=>state.cart.cart)
+  console.log(cartItem);
   return (
     <>
     <div className='fixed  bg-white p-5 w-full lg:w-[20vw] top-0 right-0 h-full'>
