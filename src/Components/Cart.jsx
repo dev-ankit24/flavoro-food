@@ -1,20 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { FaShoppingCart } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 import { ItemCart } from './ItemCart';
 import { useSelector } from 'react-redux';
 export const Cart = () => {
+  let [activeCart, SetActiveCart] =useState(true)
   let cartItem =useSelector((state)=>state.cart.cart)
+
   console.log(cartItem);
   return (
     <>
-    <div className='fixed  bg-white p-5 w-full lg:w-[20vw] top-0 right-0 h-full'>
+    <div className={`fixed  bg-white p-5 w-full lg:w-[20vw] top-0 right-0 h-full ${activeCart?'translate-x-0':'translate-x-full'} transition-all duration-500 z-50`}>
         <div className='flex  my-4 justify-between items-center'> 
             <span className='text-gray-600 font-bold text-xl'>My Order </span>
-            <RxCross2 className='text-gray-500 font-bold cursor-pointer border-2 text-xl border-gray-600 rounded-md hover:text-red-600 hover:border-red-600 ' />
+            <RxCross2 onClick={()=>SetActiveCart(!activeCart)} className='text-gray-500 font-bold cursor-pointer border-2 text-xl border-gray-600 rounded-md hover:text-red-600 hover:border-red-600 ' />
         </div>
-        <ItemCart/>
-        <ItemCart/>
-        <ItemCart/>
+        { cartItem.length?
+        cartItem.map((item, index)=>{
+          return  <ItemCart key={index}
+                      id={item.id}
+                      img={item.img}
+                      price={item.price}
+                      name={item.name}
+                      qty={item.qty}
+          />
+        }):<h4 className='text-xl font-bold text-gray-800'>Your Cart is Empty</h4>}
+              
         <div className='absolute bottom-0'>
             <h3 className='font-semibold text-gry-500'>Items:</h3>
             <h3 className='font-semibold text-gry-500'>Total Amount:</h3>
@@ -22,6 +33,7 @@ export const Cart = () => {
             <button className='bg-green-500 font-bold text-white py-2 px-3 mb-5 rounded-lg lg:w-[17vw] w-[920] hover:bg-green-600'>Checkout</button>
         </div>
     </div>
+        <FaShoppingCart onClick={()=>SetActiveCart(!activeCart)} className=' cursor-pointer fixed bottom-10 right-8  rounded-full shadow-md bg-blue-200 text-5xl  p-3 '/>
     </>
   )
 }
