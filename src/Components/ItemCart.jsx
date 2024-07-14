@@ -4,7 +4,7 @@ import { MdDeleteForever } from "react-icons/md";
 import { removeToCart } from '../Redux/Slice/CartSlice';
 import { useDispatch } from 'react-redux';
 import { incrementQty,decrementQty } from '../Redux/Slice/CartSlice';
-
+  
 export const ItemCart = ( {id,img,price,name,qty ,toast})=> {
   let dispatch=useDispatch()
   return (
@@ -13,8 +13,8 @@ export const ItemCart = ( {id,img,price,name,qty ,toast})=> {
       <div className='flex shadow-md cursor-pointer shadow-gray-300  hover:shadow-blue-300 p-2 gap-2 mt-2 rounded-md'>
           <MdDeleteForever 
           onClick={()=>
-          {dispatch(removeToCart({id,price,img,qty}))
-          toast.error("This didn't work.")
+          {dispatch(removeToCart({id,price,img,name,qty}))
+         
         }}
          className=' absolute right-7 hover:text-red-500 cursor-pointer' />
          <img src={img} alt="" className='w-[40px] h-[40px]  hover:scale-105  transition-all duration-500' />
@@ -25,7 +25,7 @@ export const ItemCart = ( {id,img,price,name,qty ,toast})=> {
           <div className='flex justify-between right-0'>
             <span className='text-green-500 font-bold'>&#8377; {price}</span>
           <div className='flex gap-1 justify-center items-center absolute right-7'>
-            <AiOutlineMinus  onClick={()=> qty>1 ? dispatch(decrementQty({id})):(qty=0)} className='border-2 boder-gray-500  text-2xl p-1 rounded-lg hover:bg-green-500 hover:text-white transition-all ease-linear cursor-pointer' />
+            < AiOutlineMinus  onClick={()=> qty>1 ? dispatch(decrementQty({id})):(qty=0)} className='border-2 boder-gray-500  text-2xl p-1 rounded-lg hover:bg-green-500 hover:text-white transition-all ease-linear cursor-pointer' />
             <span>{qty}</span>
             <AiOutlinePlus onClick={()=> qty<1 ? dispatch(incrementQty({id})):(qty=0) } className='border-2 boder-gray-500  text-2xl p-1 rounded-lg hover:bg-green-500 hover:text-white transition-all ease-linear cursor-pointer' />
           </div>
