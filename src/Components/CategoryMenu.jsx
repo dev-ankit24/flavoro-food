@@ -20,7 +20,7 @@ export default function CategoryMenu() {
     <>
     <div className="mx-6 mt-10">
     <div>
-        <h3 className='text-2xl font-semibold font-serif  '>Find the Best Food</h3>
+        <h3 className='te xt-2xl font-semibold font-serif  '>Find the Best Food</h3>
     </div>
     <div className='flex gap-2 lg:gap-3  ' >
       {console.log(selectedCategory)}

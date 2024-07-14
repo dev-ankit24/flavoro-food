@@ -13,6 +13,7 @@ export default function () {
         <Route path='/' element={<Home/>} />
         <Route path='/success' element={<Success/>}/>
         <Route path='/*' element={<Error/>}/>
+        <Route path='/success' element={<Success/>}/>
       </Routes>
     
     </BrowserRouter>
