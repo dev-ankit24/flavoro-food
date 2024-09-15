@@ -10,7 +10,7 @@ export const Cart = () => {
   let [activeCart, SetActiveCart] =useState(false)
   let cartItem =useSelector((state)=>state.cart.cart)
   
-  let totalQty=cartItem.reduce((totalQty,item)=>totalQty+item.qty, 0)
+  let totalQty=cartItem.reduce((totalQty,item)=>totalQty+item.qty, 0)    //  total count qtt
   let totalPrice=cartItem.reduce((totalPrice,item)=>totalPrice+item.qty * item.price,0)
 
   return (
