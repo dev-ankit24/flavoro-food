@@ -26,13 +26,13 @@ export default function CategoryMenu() {
       {console.log(selectedCategory)}
         <button
         onClick={()=>dispatch(setCategory("All"))}
-        className={`text-xl  font-semibold py-2 px-3 bg-gray-300 hover:bg-green-600 hover:text-white  my-4 rounded-lg ${ selectedCategory === "All" && "bg-green-600 text-white"}` }>All</button>
+        className={`text-sm  font-semibold py-2 px-1 bg-gray-300 hover:bg-green-600 hover:text-white  my-4 rounded-lg ${ selectedCategory === "All" && "bg-green-600 text-white"}` }>All</button>
        {
        categories.map((item,index)=>{
         return(<button key={index} 
           // select item onClick function
           onClick={()=>dispatch(setCategory(item))}
-        className={`text-xl  font-semibold py-2 px-3 bg-gray-300 hover:bg-green-600 hover:text-white  my-4 rounded-lg ${selectedCategory===item && "bg-green-600 text-white"}`}>
+        className={`text-sm  font-semibold py-2 px-1 bg-gray-300 hover:bg-green-600 hover:text-white  my-4 rounded-lg ${selectedCategory===item && "bg-green-600 text-white"}`}>
           {item}</button>
         )
        })
